@@ -15,12 +15,32 @@ module.exports = [
     audits: {
       'errors-in-console': {
         score: false,
-        rawValue: 4,
-        displayValue: '4',
+        rawValue: 5,
+        displayValue: '5',
         details: {
-          items: {
-            length: 4,
-          },
+          items: [
+            {
+              1: {
+                text: /^Application Cache Error event/,
+              },
+            }, {
+              1: {
+                text: /^Failed to load resource/,
+              },
+            }, {
+              1: {
+                text: /^Failed to load resource/,
+              },
+            }, {
+              1: {
+                text: /^DOMException: Failed to execute 'createShadowRoot' on 'Element'/,
+              },
+            }, {
+              1: {
+                text: /^Error: An error/,
+              },
+            },
+          ],
         },
       },
       'is-on-https': {
@@ -167,13 +187,19 @@ module.exports = [
       'deprecations': {
         score: false,
         extendedInfo: {
-          value: {
-            length: 4,
-          },
+          value: [
+            {
+              text: /^Synchronous XMLHttpRequest on the main thread/,
+            }, {
+              text: /^'window.webkitStorageInfo' is deprecated/,
+            }, {
+              text: /^\/deep\/ combinator is no longer supported/,
+            },
+          ],
         },
         details: {
           items: {
-            length: 4,
+            length: 3,
           },
         },
       },
